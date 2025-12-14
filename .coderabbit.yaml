@@ -1,0 +1,3 @@
+reviews:
+  path_filters:
+    - '!lib/schemas/auth-schema.ts'

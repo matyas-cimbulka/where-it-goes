@@ -4,6 +4,10 @@ import { createAuthClient } from 'better-auth/react';
 
 import { db } from '@/lib/db';
 
+if (!process.env.BETTER_AUTH_URL) {
+  throw new Error('BETTER_AUTH_URL is not defined in environment variables');
+}
+
 export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
@@ -14,5 +18,5 @@ export const auth = betterAuth({
 });
 
 export const authClient = createAuthClient({
-  baseURL: process.env.BETTER_AUTH_URL!,
+  baseURL: process.env.BETTER_AUTH_URL,
 });

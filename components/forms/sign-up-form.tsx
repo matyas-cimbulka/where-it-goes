@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { Controller, useForm } from 'react-hook-form';
-import z from 'zod';
+import * as z from 'zod';
 
 import { authClient } from '@/lib/auth';
 
@@ -27,6 +27,7 @@ export function SignUpForm() {
     resolver: zodResolver(FormSchema),
     mode: 'onTouched',
     defaultValues: {
+      name: '',
       email: '',
       password: '',
     },
@@ -113,7 +114,7 @@ export function SignUpForm() {
 
         {form.formState.errors.root ? <FieldError errors={[form.formState.errors.root]} /> : null}
 
-        <Button type="submit" form="sign-up-form">
+        <Button type="submit" disabled={form.formState.isSubmitting} form="sign-up-form">
           Sign Up
         </Button>
         <p className="text-sm text-muted-foreground">
