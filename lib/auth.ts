@@ -1,4 +1,5 @@
 import { betterAuth } from 'better-auth';
+import { createAuthClient } from 'better-auth/react';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { db } from '@/lib/db';
 
@@ -9,4 +10,8 @@ export const auth = betterAuth({
     database: drizzleAdapter(db, {
         provider: 'pg',
     }),
+});
+
+export const authClient = createAuthClient({
+    baseURL: process.env.BETTER_AUTH_URL!,
 });
