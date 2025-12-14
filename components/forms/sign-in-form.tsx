@@ -13,8 +13,8 @@ import { Field, FieldError, FieldLabel } from '../ui/field';
 import { Input } from '../ui/input';
 
 const FormSchema = z.object({
-  email: z.email('Invalid email address'),
-  password: z.string().min(1, 'Password is required'),
+  email: z.email({ error: 'Invalid email address' }),
+  password: z.string().min(1, { error: 'Password is required' }),
 });
 
 export type SignInFormData = z.infer<typeof FormSchema>;
