@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: where-it-goes-db
+    environment:
+      POSTGRES_USER: ${DB_USER:-db-user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-db-password}
+      POSTGRES_DB: where_it_goes
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

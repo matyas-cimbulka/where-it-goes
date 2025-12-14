@@ -1,0 +1,28 @@
+# Dependencies
+node_modules
+
+# Production builds
+.next
+out
+build
+dist
+
+# Environment files
+.env
+.env.local
+.env.production.local
+.env.development.local
+
+# Generated files
+next-env.d.ts
+*.tsbuildinfo
+
+# Yarn
+.yarn
+.pnp.*
+yarn.lock
+package-lock.json
+
+# Database
+*.db
+*.sqlite
